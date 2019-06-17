@@ -1,5 +1,6 @@
 package com.kroly.centre.Reflect.service;
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Constructor;
@@ -12,6 +13,7 @@ import java.lang.reflect.Field;
  * @Date 2019-05-29 10:12
  **/
 @Component
+@Lazy
 public class ClassData {
 
     /**
