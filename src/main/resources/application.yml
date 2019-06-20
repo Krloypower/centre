@@ -1,0 +1,33 @@
+# 随机字符串
+com:
+  value: ${random.value}
+  # 随机int
+  int: ${random.int}
+  # 10 以内的随机数
+  test: ${random.long(10)}
+  # 10 - 20 的随机数
+  test1: ${random.int[10,20]}
+
+
+server:
+  port: 8881
+
+spring:
+  application:
+    name: centre
+  jpa:
+    database-platform: mysql
+    databaseplatform: mysql
+    databasePlatform: mysql
+    database_paltfrom: mysql
+  my-example:
+    url:
+      - http://example.com
+      - http://spring.io
+    url2: http://example.com,http://spring.io
+  my-example1:
+    '[foo.baz]' : bar
+
+MY_FOO_1_ = my.foo[1]
+MY_FOO_1_bar = my.foo[1].bar
+MY_FOO_1_2_ = my.foo[1][2]
