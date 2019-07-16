@@ -27,7 +27,3 @@ spring:
     url2: http://example.com,http://spring.io
   my-example1:
     '[foo.baz]' : bar
-
-MY_FOO_1_ = my.foo[1]
-MY_FOO_1_bar = my.foo[1].bar
-MY_FOO_1_2_ = my.foo[1][2]

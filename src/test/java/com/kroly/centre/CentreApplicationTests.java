@@ -1,7 +1,10 @@
 package com.kroly.centre;
 
+import com.kroly.centre.strategy.Context;
+import com.kroly.centre.strategy.Strategy;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -13,16 +16,18 @@ import java.util.List;
 @SpringBootTest
 public class CentreApplicationTests {
 
+    @Autowired
+    private Context context;
+
     @Test
-    public void contextLoads() throws  Exception {
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(3);
-        list.add(2);
-        Class<? extends List> listClass = list.getClass();
-        Method method = listClass.getMethod("add", Object.class);
-        method.invoke(list,"ouyangkang");
-        System.out.println(list);
+    public void contextLoads() throws Exception {
+        String test = "PostBreak";
+        for (Strategy strategy : context.getStrategyMap().values()) {
+            if (strategy.getStrategy().getType().equals(test)){
+                strategy.operation();
+                break;
+            }
+        }
     }
 
 }
