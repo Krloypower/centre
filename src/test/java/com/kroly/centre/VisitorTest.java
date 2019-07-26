@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * @ClassName VisitorTest
- * @Description TODO
+ * @Description 访问者模式
  * @Author ouyangkang
  * @Date 2019-07-19 11:14
  **/
