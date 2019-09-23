@@ -1,6 +1,11 @@
 package com.kroly.centre.config;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
 
 import javax.lang.model.element.Name;
@@ -15,11 +20,26 @@ import java.util.concurrent.TimeUnit;
  * @Author ouyangkang
  * @Date 2019-06-17 11:32
  **/
-@Component("AsyncConfig")
-public class AsyncConfig  implements AsyncConfigurer {
+@Configuration
+@EnableAsync
+public class AsyncConfig {
 
-    @Override
-    public Executor getAsyncExecutor() {
-        return new ThreadPoolExecutor(20,100,60, TimeUnit.SECONDS,new SynchronousQueue<>());
+    @Bean("taskExecutor")
+    public Executor getExecutor(){
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        executor.setThreadNamePrefix("job-Executor-");
+        executor.setMaxPoolSize(100);
+        executor.setCorePoolSize(20);
+        executor.setKeepAliveSeconds(300);//300秒后核心线程数退出
+        // 自动关闭线程池中的核心线程池 默认是false
+        executor.setAllowCoreThreadTimeOut(true);
+        executor.setWaitForTasksToCompleteOnShutdown(true);
+        executor.setAwaitTerminationSeconds(10);
+        executor.setQueueCapacity(200);
+        //直接抛弃，不抛出异常
+        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy());
+        executor.initialize();////如果不初始化，导致找到不到执行器
+        return executor;
     }
+
 }
