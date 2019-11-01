@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  * @Date 2019-08-02 17:10
  **/
 public class RegexMatches {
-    public static void main1( String args[] ){
+    public static void main( String args[] ){
 
         // 按指定模式在字符串查找
         String line = "123ra9040 123123aj234 adf12322ad 222jsk22";
@@ -32,30 +32,8 @@ public class RegexMatches {
             System.out.println("Found value: " + m.group(3) );
             i++;
             System.out.println("|||||||");
-            System.out.println("");
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println(seqConvert("s2").desc);
-        System.out.println(seqConvert("s2").seq);
-    }
-    public static   Seq seqConvert(String seq){
-        String regex = "([se]+)(\\d+)";
-        Pattern compile = Pattern.compile(regex);
-        Matcher matcher = compile.matcher(seq);
-        Seq temp = new Seq();
-        while (matcher.find()){
-            temp.desc = matcher.group(1);
-            temp.seq = Integer.valueOf(matcher.group(2));
-            break;
-        }
-        return temp;
 
-    }
-
-    public static class Seq{
-        int seq;
-        String desc;
-    }
 }
