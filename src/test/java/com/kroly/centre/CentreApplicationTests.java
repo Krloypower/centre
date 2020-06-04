@@ -1,5 +1,6 @@
 package com.kroly.centre;
 
+import com.kroly.centre.annotation.service.Log;
 import com.kroly.centre.strategy.Context;
 import com.kroly.centre.strategy.Strategy;
 import org.junit.Test;
@@ -20,6 +21,7 @@ public class CentreApplicationTests {
     private Context context;
 
     @Test
+    @Log
     public void contextLoads() throws Exception {
         String test = "PostBreak";
         for (Strategy strategy : context.getStrategyMap().values()) {

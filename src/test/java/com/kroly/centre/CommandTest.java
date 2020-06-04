@@ -1,5 +1,6 @@
 package com.kroly.centre;
 
+import com.kroly.centre.annotation.service.Log;
 import com.kroly.centre.command.Administrator;
 import com.kroly.centre.command.Server;
 import com.kroly.centre.command.StartApache;

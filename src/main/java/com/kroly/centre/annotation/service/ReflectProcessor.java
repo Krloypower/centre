@@ -9,6 +9,17 @@ import java.lang.reflect.Method;
  * @Date 2019-05-28 18:20
  **/
 public class ReflectProcessor {
+
+    @Reflect
+    public void sayHello(String name){
+        System.out.println(name);
+    }
+
+    @Reflect(name = "kang.ouyang")
+    public void styName(String name){
+        System.out.println(name);
+    }
+
     public void parseMethod(final Class<?> clazz) throws Exception{
         Object obj = clazz.getConstructor(new Class[]{}).newInstance(new Object[]{});
         Method[] methods = clazz.getDeclaredMethods();

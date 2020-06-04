@@ -1,25 +1,22 @@
 package com.kroly.centre.annotation.service;
 
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.lang.reflect.Method;
+
 /**
  * @ClassName Main
  * @Description TODO
  * @Author ouyangkang
  * @Date 2019-05-28 18:24
  **/
+@Component
 public class Main {
 
-    @Reflect
-    public static void sayHello(String name){
-        System.out.println(name);
-    }
-
-    @Reflect(name = "oyk")
-    public static void styName(String name){
-        System.out.println(name);
-    }
-
-    public static void main(String[] args) throws Exception {
-        ReflectProcessor processor = new ReflectProcessor();
-        processor.parseMethod(Main.class);
+    @Cache(value = "cacheKang")
+    public String test(){
+        // do someThing
+        return "kang";
     }
 }

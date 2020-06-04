@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="student" class="com.kroly.centre.spring.Student">
+        <constructor-arg value="kang"/>
+    </bean>
+    <bean id="myBeanFactoryPostProcessor" class="com.kroly.centre.spring.MyBeanFactoryPostProcessor"></bean>
+    <bean id="myInstantiationAwareBeanPostProcessor" class="com.kroly.centre.spring.MyInstantiationAwareBeanPostProcessor"></bean>
+    <bean id="myBeanPostProcessor" class="com.kroly.centre.spring.MyBeanPostProcessor"></bean>
+</beans>
