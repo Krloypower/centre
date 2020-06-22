@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Date 2020-06-05 10:52
  **/
 public class Main {
-    private static ExecutorService executor = new ThreadPoolExecutor(1, 10, 60, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(), new ThreadFactoryMain("kang"));
+    private static ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 10, 60, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(), new ThreadFactoryMain("kang"));
 //    private static ExecutorService executor = Executors.newFixedThreadPool(10);
 
     private static ReentrentLock lock = new ReentrentLock();
@@ -20,7 +20,6 @@ public class Main {
 
 
     static class ThreadFactoryMain implements ThreadFactory {
-
         private String name;
 
         private final static AtomicInteger num = new AtomicInteger();
@@ -37,6 +36,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        executor.prestartAllCoreThreads();
         executor.execute(() -> {
             try {
                 test();
