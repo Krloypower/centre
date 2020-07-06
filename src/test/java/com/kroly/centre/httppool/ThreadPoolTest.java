@@ -1,6 +1,6 @@
 package com.kroly.centre.httppool;
 
-import javafx.concurrent.Task;
+//import javafx.concurrent.Task;
 import org.junit.Test;
 
 import java.util.ArrayList;
