@@ -1,9 +1,7 @@
-package com.kroly.centre.leetcode;
+package code.common;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -14,18 +12,18 @@ import java.util.concurrent.ConcurrentHashMap;
  **/
 public class NoUtil {
 
-    static class ListNode {
-        int val;
-        ListNode next;
+    public static class ListNode {
+        public int val;
+        public ListNode next;
 
-        ListNode() {
+        public ListNode() {
         }
 
-        ListNode(int val) {
+        public ListNode(int val) {
             this.val = val;
         }
 
-        ListNode(int val, ListNode next) {
+        public ListNode(int val, ListNode next) {
             this.val = val;
             this.next = next;
         }

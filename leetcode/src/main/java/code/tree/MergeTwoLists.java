@@ -1,7 +1,8 @@
-package com.kroly.centre.leetcode;
+package code.tree;
 
-import com.kroly.centre.leetcode.NoUtil.ListNode;
-import org.w3c.dom.NodeList;
+import code.common.NoUtil;
+
+import  code.common.NoUtil.ListNode;
 
 
 /**

@@ -1,7 +1,4 @@
-package com.kroly.centre.leetcode;
-
-import java.util.HashMap;
-import java.util.Map;
+package code.character;
 
 /**
  * @ClassName CheckInclusion

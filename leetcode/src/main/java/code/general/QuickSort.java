@@ -1,4 +1,4 @@
-package com.kroly.centre.leetcode;
+package code.general;
 
 import com.alibaba.fastjson.JSON;
 

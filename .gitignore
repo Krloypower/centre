@@ -16,7 +16,11 @@ HELP.md
 *.iws
 *.iml
 *.ipr
-
+.mvn
+mvnw.cmd
+.gitattributes
+centre.iml
+mvnw
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/

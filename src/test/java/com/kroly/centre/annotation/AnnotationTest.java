@@ -1,8 +1,6 @@
 package com.kroly.centre.annotation;
 
-import com.kroly.centre.annotation.service.AliasTest;
-import com.kroly.centre.annotation.service.Main;
-import com.kroly.centre.annotation.service.SomeThing;
+import com.kroly.centre.annotation.service.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +28,10 @@ public class AnnotationTest {
     private Main main;
 
     @Test
-    public void aliasTest(){
+    public void aliasTest() throws Exception {
         System.out.println( main.test());
-//        RequestMapping annotation = someThing.getClass().getAnnotation(RequestMapping.class);
-//        if (annotation != null){
-//            System.out.println(annotation.annotationType());
-//        }
+
+        OpenService openService = new OpenService();
+        openService.doOpen();
     }
 }

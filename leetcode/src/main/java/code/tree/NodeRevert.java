@@ -1,5 +1,7 @@
-package com.kroly.centre.leetcode;
-import com.kroly.centre.leetcode.NoUtil.*;
+package code.tree;
+
+import code.common.NoUtil;
+import code.common.NoUtil.ListNode;
 
 /**
  * @ClassName NodeRevert
