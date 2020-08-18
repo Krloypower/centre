@@ -1,0 +1,14 @@
+
+server:
+  port: 8881
+
+spring:
+  application:
+    name: rubbish
+  datasource:
+    url: jdbc:mysql://localhost:3306/kang?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: admin
+  profiles:
+    active: dev
