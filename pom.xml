@@ -7,6 +7,10 @@
         <module>leetcode</module>
         <module>rpc</module>
         <module>rubbish</module>
+        <module>qiniu</module>
+        <module>javascropt</module>
+        <module>reactor</module>
+        <module>nio</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
