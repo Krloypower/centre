@@ -2,4 +2,9 @@ org.springframework.context.ApplicationContextInitializer=\
 com.springboot.check.init.MyApplicationInitializer
 
 org.springframework.context.ApplicationListener=\
-com.springboot.check.init.MyApplicationListen
+com.springboot.check.init.MyApplicationListen,\
+com.springboot.check.init.MyApplicationStartingEventListen,\
+com.springboot.check.init.MyApplicationEnvironmentPreparedEventListen,\
+com.springboot.check.init.MyApplicationContextInitializedEventListen,\
+com.springboot.check.init.MyApplicationPreparedEventListen,\
+com.springboot.check.init.MyApplicationStartedEventListen
