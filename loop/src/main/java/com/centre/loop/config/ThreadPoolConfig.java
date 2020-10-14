@@ -22,13 +22,13 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 public class ThreadPoolConfig {
 
-    @Bean
+    @Bean("taskExecutor")
     public ThreadPoolTaskExecutor taskExecutor(){
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setAllowCoreThreadTimeOut(true);
-        executor.setCorePoolSize(1);
-        executor.setMaxPoolSize(1);
-        executor.setQueueCapacity(1);
+        executor.setCorePoolSize(4);
+        executor.setMaxPoolSize(4);
+        executor.setQueueCapacity(10);
         executor.setThreadNamePrefix("----taskExecutor--");
         // 拒绝策略，会使用主线程执行，导致阻塞主线程
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());

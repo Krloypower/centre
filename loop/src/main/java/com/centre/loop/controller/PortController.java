@@ -1,12 +1,11 @@
 package com.centre.loop.controller;
 
-import com.sun.tools.corba.se.idl.toJavaPortable.DefaultFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.scheduling.concurrent.CustomizableThreadFactory;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import com.centre.loop.service.Handler;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.concurrent.*;
+import javax.annotation.Resource;
 
 /**
  * @ClassName PortController
@@ -15,7 +14,15 @@ import java.util.concurrent.*;
  * @Date 2020/10/9
  * @Version 1.0
  **/
+@RestController
 public class PortController {
 
+    @Resource(name = "ioHandler")
+    private Handler ioHandler;
+
+    @RequestMapping(value = "/ioTest", method = RequestMethod.GET)
+    public void ioTest(){
+        ioHandler.process();
+    }
 
 }
