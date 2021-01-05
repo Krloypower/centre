@@ -14,6 +14,13 @@ import java.util.Queue;
  **/
 public class MaxDepth {
 
+    /**
+     * @param root:
+     * @Author ouyangkang
+     * @Description 队列实现 BFS Breadth first search
+     * @Date 2020/12/11
+     * @return: int
+     **/
     public static int solution(TreeNode root) {
         if (root == null) {
             return 0;
@@ -39,6 +46,24 @@ public class MaxDepth {
         return count;
     }
 
+    /**
+     * @param root: 
+     * @Author ouyangkang
+     * @Description 递归实现，不建议，会导致，栈溢出 dfs depth first search
+     * @Date 2020/12/11
+     * @return: int
+     **/
+    public static int solution2(TreeNode root) {
+        if (root == null){
+            return 0;
+        }
+        return Math.max(solution2(root.left), solution2(root.right)) + 1;
+    }
+
+
+
+
+
     public static void main(String[] args) {
 
         TreeNode A = new TreeNode(1);
@@ -53,8 +78,7 @@ public class MaxDepth {
         b.left = d;
         d.left = f;
         System.out.println(solution(A));
-
-
+        System.out.println(solution2(A));
     }
 
 }
