@@ -1,4 +1,4 @@
-package code;
+package code.first;
 
 import java.util.Arrays;
 

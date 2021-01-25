@@ -27,14 +27,40 @@ public class NodeRevert {
         return pre;
     }
 
+    public static ListNode revertDigui(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode newNode = revertDigui(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return newNode;
+    }
+
+    public static ListNode jiaohuan(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode next = head.next;
+
+        head.next = jiaohuan(next.next);
+        next.next = head;
+        return next;
+    }
 
 
     public static void main(String[] args) {
-        int[] temp = new int[]{1,2,3,4,5};
+        int[] temp = new int[]{1, 2, 8, 4, 5,6};
         ListNode head = NoUtil.createNodeHead(temp);
         NoUtil.syuNode(head);
 
-        ListNode revert = revert(head);
-        NoUtil.syuNode(revert);
+//        ListNode revert = revert(head);
+//        ListNode revert1 = revertDigui(head);
+
+        ListNode jiaohuan = jiaohuan(head);
+//        NoUtil.syuNode(revert);
+//        NoUtil.syuNode(revert1);
+        NoUtil.syuNode(jiaohuan);
     }
 }
