@@ -20,18 +20,14 @@ public class Main {
         String str;
         reader.readLine();
 
-        Writer writer = new FileWriter("/Users/ouyangkang/temp/updateSaleStageEndTime.sql",false);
-        while ((str = reader.readLine()) != null){
+        Writer writer = new FileWriter("/Users/ouyangkang/temp/updateVProjectCreateTime.sql", false);
+        while ((str = reader.readLine()) != null) {
             String[] split = str.split("\t");
-            if (split.length ==4 && !StringUtils.isEmpty(split[3].trim())){
-                String sql = "UPDATE tbl_sale_opportunity_stage AS a \n" +
-                        "INNER JOIN ( SELECT end_stage_id FROM tbl_sale_opportunity_stage WHERE opportunity_id = "+split[0]+" ) AS b \n" +
-                        "SET start_time = '"+split[3]+"' \n" +
-                        "WHERE\n" +
-                        "\ta.id = b.end_stage_id;";
+            if (split.length == 6) {
+                String sql = "UPDATE tbl_virtual_project set create_time='" + split[4] + "' WHERE id=" + split[5] + ";";
                 writer.append(sql).append("\t\n");
-            }else {
-                if (split.length >0){
+            } else {
+                if (split.length > 0) {
                     System.out.println(split[0]);
                 }
             }
