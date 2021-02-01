@@ -1,8 +1,6 @@
 package code.first;
 
-import code.common.NoUtil.*;
-
-import java.util.List;
+import first.leetcode.editor.cn.ListNode;
 
 /**
  * @ClassName 第二十四题

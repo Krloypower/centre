@@ -1,7 +1,7 @@
 package code.tree;
 
 import code.common.NoUtil;
-import code.common.NoUtil.ListNode;
+import first.leetcode.editor.cn.ListNode;
 
 /**
  * @ClassName NodeRevert

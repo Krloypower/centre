@@ -1,6 +1,6 @@
 package code.first;
 
-import code.common.NoUtil.*;
+import first.leetcode.editor.cn.ListNode;
 
 /**
  * @ClassName 第十九提
