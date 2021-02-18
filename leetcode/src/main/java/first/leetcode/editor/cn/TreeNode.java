@@ -8,11 +8,11 @@ package first.leetcode.editor.cn;
  * @Version 1.0
  **/
 public class TreeNode {
-    public int val;
+    public Integer val;
     public TreeNode left;
     public TreeNode right;
 
-    public TreeNode(int x) {
+    public TreeNode(Integer x) {
         val = x;
     }
 }
