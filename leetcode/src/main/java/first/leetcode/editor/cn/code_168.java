@@ -34,6 +34,8 @@
 
 package first.leetcode.editor.cn;
 
+import java.util.Stack;
+
 public class code_168 {
     public static void main(String[] args) {
 
@@ -45,16 +47,16 @@ public class code_168 {
     class Solution {
         public String convertToTitle(int n) {
             StringBuffer sb = new StringBuffer();
-            while (n > 0) {
-                int t = n % 26;
-                if(t == 0){
-                    t = 26;
-                    n -= 1;
-                }
-                sb.append((char) ('A' + t - 1));
-                n /= 26;
+            Stack<Character> s = new Stack<Character>();
+
+            for (; n > 0; n /= 26) {
+                s.push((char) ((--n) % 26 + 'A'));
             }
-            return sb.reverse().toString();
+            while (!s.empty()) {
+                sb.append(s.pop());
+            }
+            return sb.toString();
+
 
         }
     }
