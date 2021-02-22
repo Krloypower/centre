@@ -65,7 +65,7 @@ public class code_100 {
                 return true;
             } else if (p == null || q == null) {
                 return false;
-            } else if (p.val != q.val) {
+            } else if (!p.val.equals(q.val)) {
                 return false;
             } else {
                 return isSameTree(q.left, p.left) && isSameTree(q.right, p.right);

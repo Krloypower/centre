@@ -69,7 +69,7 @@ public class code_101 {
                 return false;
             }
 
-            return root.val == root1.val && check(root.left, root1.right) && check(root.right, root1.left);
+            return root.val.equals(root1.val) && check(root.left, root1.right) && check(root.right, root1.left);
         }
 
         public boolean isSymmetric(TreeNode root) {
