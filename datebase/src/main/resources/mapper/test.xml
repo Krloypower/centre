@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.centre.datebase.mapper.TestMapper">
+    <select id="select1" resultType="java.lang.Long">
+        select * from test where id = 1 for update;
+    </select>
+
+    <select id="select2" resultType="java.lang.Long">
+        select * from test where id = 2 for update;
+    </select>
+</mapper>
