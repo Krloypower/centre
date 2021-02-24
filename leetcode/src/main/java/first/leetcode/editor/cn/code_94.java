@@ -60,6 +60,16 @@ import java.util.*;
 public class code_94 {
     public static void main(String[] args) {
         Solution solution = new code_94().new Solution();
+
+        Integer[] value = {1,2,3,4,5,6,7};
+        TreeNode treeNode1 = NoUtil.createTreeNode(value);
+        TreeNode treeNode2 = NoUtil.createTreeNode(value);
+        TreeNode treeNode3 = NoUtil.createTreeNode(value);
+
+        System.out.println(solution.inorderTraversal3(treeNode1));
+//        System.out.println(solution.inorderTraversal3(treeNode2));
+        System.out.println(solution.inorderTraversal4(treeNode3));
+
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 
@@ -113,25 +123,43 @@ public class code_94 {
             return res;
         }
 
-        public List<Integer> inorderTraversal3(TreeNode root) {
+        // 前序遍历
+        public List<Integer> inorderTraversal4(TreeNode root) {
             List<Integer> res = new ArrayList<>();
             Deque<TreeNode> deque = new LinkedList<>();
-            deque.push(root);
-            while (!deque.isEmpty()) {
+            while (root != null || !deque.isEmpty()) {
+                while (root != null) {
+                    res.add(root.val);
+                    deque.push(root);
+                    root = root.left;
+                }
                 root = deque.pop();
+                root = root.right;
+            }
+            return res;
+        }
+
+        // 前序遍历
+        public List<Integer> inorderTraversal3(TreeNode root) {
+            List<Integer> res = new ArrayList<>();
+            Stack<TreeNode> stack = new Stack<>();
+            stack.push(root);
+            while (!stack.isEmpty()) {
+                root = stack.pop();
                 res.add(root.val);
                 if (root.right != null) {
-                    deque.push(root.right);
+                    stack.push(root.right);
                 }
 
                 if (root.left != null) {
-                    deque.push(root.left);
+                    stack.push(root.left);
                 }
             }
             return res;
         }
 
 
+        // 后序遍历
         public List<Integer> inorderTraversal(TreeNode root) {
             List<Integer> res = new ArrayList<>();
             Stack<TreeNode> stack = new Stack<>();
