@@ -1,7 +1,6 @@
-//给定一个 完美二叉树 ，其所有叶子节点都在同一层，每个父节点都有两个子节点。二叉树定义如下： 
+//给定一个二叉树 
 //
-// 
-//struct Node {
+// struct Node {
 //  int val;
 //  Node *left;
 //  Node *right;
@@ -27,34 +26,34 @@
 //
 // 
 //
-// 
-//输入：root = [1,2,3,4,5,6,7]
-//输出：[1,#,2,3,#,4,5,6,7,#]
-//解释：给定二叉树如图 A 所示，你的函数应该填充它的每个 next 指针，以指向其下一个右侧节点，如图 B 所示。序列化的输出按层序遍历排列，同一层节点由 
-//next 指针连接，'#' 标志着每一层的结束。
-// 
+// 输入：root = [1,2,3,4,5,null,7]
+//输出：[1,#,2,3,#,4,5,7,#]
+//解释：给定二叉树如图 A 所示，你的函数应该填充它的每个 next 指针，以指向其下一个右侧节点，如图 B 所示。 
 //
 // 
 //
 // 提示： 
 //
 // 
-// 树中节点的数量少于 4096 
-// -1000 <= node.val <= 1000 
+// 树中的节点数小于 6000 
+// -100 <= node.val <= 100 
 // 
-// Related Topics 树 深度优先搜索 广度优先搜索 
-// 👍 402 👎 0
+//
+// 
+//
+// 
+// 
+// Related Topics 树 深度优先搜索 
+// 👍 366 👎 0
 
 package first.leetcode.editor.cn;
 
-import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
-public class code_116 {
+public class code_117 {
     public static void main(String[] args) {
-        Solution solution = new code_116().new Solution();
+        Solution solution = new code_117().new Solution();
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 
@@ -79,6 +78,9 @@ public class code_116 {
             next = _next;
         }
     }
+
+
+
 
     class Solution {
         public Node connect(Node root) {
