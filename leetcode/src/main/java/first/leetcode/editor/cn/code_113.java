@@ -19,9 +19,7 @@
 
 package first.leetcode.editor.cn;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class code_113 {
     public static void main(String[] args) {
@@ -60,7 +58,7 @@ public class code_113 {
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> path = new ArrayList<>();
 
-        public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        public List<List<Integer>> pathSum1(TreeNode root, int targetSum) {
             dfs(root, targetSum);
             return res;
         }
@@ -77,6 +75,49 @@ public class code_113 {
             dfs(root.left, targetSum);
             dfs(root.right, targetSum);
             path.remove(path.size() - 1);
+        }
+
+
+
+        // 栈实现
+        public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+            Deque<TreeNode> deque = new LinkedList<>();
+            Deque<List<Integer>> temp = new LinkedList<>();
+
+            deque.push(root);
+            ArrayList<Integer> list = new ArrayList<>();
+            list.add(root.val);
+            temp.push(list);
+
+            while (!deque.isEmpty()) {
+                root = deque.pop();
+                List<Integer> pop = temp.pop();
+
+                if (root.left == null && root.right==null && root.val == targetSum){
+                    res.add(pop);
+                }
+
+                if (root.right != null){
+
+                    pop.add(root.right.val);
+                    temp.push(new ArrayList<>(pop));
+
+                    root.right.val += root.val;
+                    deque.push(root.right);
+                    pop.remove(pop.size() - 1);
+                }
+
+                if (root.left != null){
+
+                    pop.add(root.left.val);
+                    temp.push(new ArrayList<>(pop));
+
+                    root.left.val += root.val;
+                    deque.push(root.left);
+                    pop.remove(pop.size() - 1);
+                }
+            }
+            return res;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
