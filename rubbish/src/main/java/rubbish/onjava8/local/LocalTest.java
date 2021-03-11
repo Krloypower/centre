@@ -1,5 +1,7 @@
 package rubbish.onjava8.local;
 
+import org.omg.SendingContext.RunTime;
+
 import java.time.LocalDate;
 
 /**
@@ -15,6 +17,9 @@ public class LocalTest {
         int value = today.getDayOfMonth();
         int i = today.getMonth().length(today.isLeapYear()) - value;
         System.out.println(i);
+
+        int i1 = Runtime.getRuntime().availableProcessors();
+        System.out.println(i1);
 
 
     }
