@@ -13,13 +13,14 @@ import java.util.Date;
 public class SyncDemo implements Runnable {
     @Override
     public void run() {
-        test1();
+        test4();
     }
 
     private void test1() {
         System.out.println(Thread.currentThread().getName() + "_: " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
 
-        synchronized (this){
+        // 对象锁
+        synchronized (this) {
             try {
                 System.out.println(Thread.currentThread().getName() + "_start_: " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
                 Thread.sleep(1000 * 4);
@@ -27,6 +28,59 @@ public class SyncDemo implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    /**
+     * @Author ouyangkang
+     * @Description 同一个对象锁  和 test1 效果一样 但是 test1 更加灵活
+     * @Date 2021/3/16
+     * @return: void
+     **/
+    private synchronized void test2() {
+        System.out.println(Thread.currentThread().getName() + "_: " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+        try {
+            System.out.println(Thread.currentThread().getName() + "_start_: " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+            Thread.sleep(1000 * 4);
+            System.out.println(Thread.currentThread().getName() + "_end_: " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * @Author ouyangkang
+     * @Description 类锁
+     * @Date 2021/3/16
+     * @return: void
+     **/
+    private void test3(){
+        System.out.println(Thread.currentThread().getName() + "_: " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+        synchronized (SyncDemo.class){
+            try {
+                System.out.println(Thread.currentThread().getName() + "_start_: " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+                Thread.sleep(1000 * 4);
+                System.out.println(Thread.currentThread().getName() + "_end_: " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * @Author ouyangkang
+     * @Description 和 test3效果一样，也是类所，但是 test3更加灵活
+     * @Date 2021/3/16
+     * @return: void
+     **/
+    private static synchronized void test4(){
+        System.out.println(Thread.currentThread().getName() + "_: " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+        try {
+            System.out.println(Thread.currentThread().getName() + "_start_: " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+            Thread.sleep(1000 * 4);
+            System.out.println(Thread.currentThread().getName() + "_end_: " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
